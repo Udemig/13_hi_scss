@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basics</title>
+    <!-- * Css Link -->
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <!-- * Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- * Scss css'in sahip olduğu özellikler üzerine css'in sahip olmadığı bazı özellikleri kullanmamızı sağlayan bir css ön işlemcisidir.
+     
+    ! Scss css'e nazaran farklı özelliklere sahip olsada tarayıcıların css okuma yeteneği yoktur.Bu nedenle bizim scss kodlarımızı css koduna çeviren bir eklenti kullanırız.Bu eklenti `Live Sass Complier dır` [eklenti id'si:glenn2223.live-sass] Bu eklenti sayesinde biz scss kodlaması yapacağız,eklenti bunu css'e çevirecek bizde oluşan bu css dosyasını html kısımına bağlayarak gerekli stillendirmeyi tarayıcıya aktaracağız
+
+    * Scss dosyasında yapılan değişikliklerin tarayıcıya aktarılması için proje her aç kapa yapıldıktan sonra live sass complier eklentisi aktif edilmelidir.
+    
+    
+    -->
+
+    <!-- * Scss'in Faydaları
+     
+    1-) Variables (Değişkenler)
+
+    2-) Nesting Yazım (İç İçe Yazım)
+
+    3-) Extend Yapısı (Miras Alma)
+
+    4-) Mixin Yapısı
+
+    5-) Moduler Scss Dosyaları
+    
+    
+    -->
+
+    <!-- ! Variables Örneği -->
+    <!-- <div class="kutu-1">Kutu-1</div>
+    <div class="kutu-2">Kutu-2</div>
+    <div class="kutu-3">Kutu-3</div> -->
+
+    <!-- ! Nesting Yazım Örneği -->
+
+    <header>
+      <!-- Logo -->
+      <div class="logo">
+        <h1>Logo</h1>
+      </div>
+
+      <!-- Navigation -->
+      <nav>
+        <li>
+          <a href="#"><i class="fa-solid fa-house"></i> Ana Sayfa</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-user"></i> Hakkımızda</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-phone"></i> İletişim</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-graduation-cap"></i> Eğitimler</a>
+        </li>
+      </nav>
+
+      <!-- Buttons -->
+      <div class="buttons">
+        <button>Giriş Yap</button>
+        <button>Kayıt Ol</button>
+      </div>
+    </header>
+
+    <div class="card">
+      <div class="card__image">
+        <img src="https://picsum.photos/200" alt="" />
+      </div>
+
+      <div class="card__content">
+        <h1 class="card__content__title">Card Title</h1>
+        <p class="card__content__desc">Card Description</p>
+
+        <div class="card__content__buttons">
+          <button>Onayla</button>
+          <button>Reddet</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Extend Örneği -->
+
+    <div class="wrapper">
+      <h1>Text</h1>
+
+      <i class="fa-solid fa-star"></i>
+    </div>
+
+    <div class="paragrah-wrapper">
+      <p>Udemig Akademiden selamlar</p>
+      <p>Scss konusundan selamlar</p>
+    </div>
+
+    <!-- * Mixin Örneği -->
+
+    <div class="container">
+      <button class="btn-1">Button-1</button>
+
+      <br /><br /><br />
+      <button class="btn-2">Button-2</button>
+    </div>
+
+    <div class="page-example">
+      <header>
+        <h1>Header</h1>
+      </header>
+      <main>
+        <aside class="left">
+          <h1>Left</h1>
+        </aside>
+        <section class="center">
+          <h1>Center</h1>
+        </section>
+        <aside class="right">
+          <h1>Right</h1>
+        </aside>
+      </main>
+
+      <footer>
+        <h1>Footer</h1>
+      </footer>
+    </div>
+  </body>
+</html>

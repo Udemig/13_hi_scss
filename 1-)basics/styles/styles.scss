@@ -1,0 +1,358 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import "./header";
+@import "./left";
+@import "./center";
+@import "./right";
+
+.container {
+  margin: 20px;
+}
+
+@mixin laptop {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+// * Scss Değişkenler
+
+// Scss değişkenleri kullanılarak proje içerisindeki yapılara renk,font,border-radius gibi değerler kolay bir şekilde verilir ve bir değişiklik yapılacağı zaman bunu çok daha kolay bir şekilde yapabiliriz.
+
+// ! Değişken tanımlarken `$` işareti kullanılır devamında değişkene bir isim verilir.Verilen isimden sonra : konulup sağına değişkenin alacağı değer yazılır.
+
+$bg-color: green;
+$box-width: 200px;
+$border-radius: 20px;
+
+.kutu-1 {
+  background-color: $bg-color;
+  width: $box-width;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 45px;
+  margin: 20px;
+  border-radius: $border-radius;
+}
+
+.kutu-2 {
+  background-color: $bg-color;
+  width: $box-width;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin: 20px;
+  border-radius: $border-radius;
+}
+
+.kutu-3 {
+  background-color: $bg-color;
+  width: $box-width;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  margin: 20px;
+  border-radius: $border-radius;
+}
+
+// * Nesting Yazım Örneği
+
+// Parent içerisindeki elemanlara doğru şekilde erişmek için genelde uzun uzadıya elemanların adı yazılır.Bu yazılım özellikle kapsayıcı sayısı arttığı durumlarda bizim için fazla kod yazmamıza sebep olur.Scss bu durumu nesting yazım ile çözer.Nesting yazımda parent elemana verilecek stiller yazıldıktan sonra child elemanların stilleri parnent içerisinde yazılabilir.Bu sayede uzun uzadıya kapsayıcı belirtmek zorunda kalmayız.
+
+// ! Fakat nesting yazımda dikkat edilmesi gereken husus doğru kapsayıcı içerisinde olunması gerekliliğidir.Yani yazım sırasında yanlış kapsayıcı ifade edilirse verilen stiller çalışmayacaktır.
+
+/*
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #d4c9be;
+}
+
+header .logo {
+  padding: 5px;
+}
+
+
+header .logo h1 {
+  font-size: 33px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+header .logo h1:hover {
+  scale: 0.8;
+}
+  
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header nav li {
+  list-style: none;
+  padding: 5px;
+}
+  
+
+header nav li a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+
+header nav li a:hover {
+  color: white;
+}
+
+header .buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+header .buttons button {
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+
+header .buttons button:hover {
+  scale: 0.8;
+}
+ 
+
+header .buttons button:nth-child(1) {
+  background-color: green;
+  color: white;
+}
+
+header .buttons button:nth-child(2) {
+  background-color: red;
+}
+ */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #d4c9be;
+  // Logo
+  .logo {
+    padding: 5px;
+    @include laptop {
+      background-color: red;
+    }
+    h1 {
+      font-size: 33px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      cursor: pointer;
+      transition: all 0.5s;
+      &:hover {
+        scale: 0.8;
+      }
+    }
+  }
+  // Navigation
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    @include laptop {
+      display: none;
+    }
+    // Li
+    li {
+      list-style: none;
+      padding: 5px;
+
+      // a
+
+      a {
+        text-decoration: none;
+        color: black;
+        cursor: pointer;
+        transition: all 0.4s;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+
+  // Buttons
+  .buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    // Button
+    button {
+      border: none;
+      outline: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.5s ease;
+      cursor: pointer;
+      &:hover {
+        scale: 0.8;
+      }
+      // First Button
+      &:nth-child(1) {
+        background-color: green;
+        color: white;
+      }
+
+      // Second Button
+      &:nth-child(2) {
+        background-color: red;
+      }
+    }
+  }
+}
+
+.card {
+  margin: 20px;
+  border: 3px solid gray;
+  display: inline-block;
+  // Image
+  &__image {
+    border-radius: 4px;
+    img {
+      height: 300px;
+      width: 100%;
+    }
+  }
+  &__content {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__title {
+      text-align: center;
+    }
+    &__desc {
+      line-height: 1.4;
+      letter-spacing: 4px;
+    }
+
+    &__buttons {
+      padding: 5px;
+      button {
+        border: none;
+        outline: none;
+        padding: 8px 14px;
+        border-radius: 4px;
+        transition: all 0.5s;
+        &:nth-child(1) {
+          background-color: green;
+          color: white;
+
+          &:hover {
+            background-color: greenyellow;
+            scale: 0.8;
+          }
+        }
+        &:nth-child(2) {
+          background-color: red;
+          color: white;
+          &:hover {
+            background-color: orangered;
+            scale: 0.8;
+          }
+        }
+      }
+    }
+  }
+}
+
+// * Extend Örneği
+
+// Projelerde pekçok kez aynı kodları tekrar tekrar yazmak durumunda kalırız.Bunu engellemek için scss içerisinde yer alan extend özelliği kullanılır.Bu özellik bir parent classı yada id'si oluşturup gereken yerde bunu @extend ile miras almamızı sağlar.
+
+.parent-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrapper {
+  border: 2px solid gray;
+  margin: 10px 20px;
+  padding: 10px;
+  @extend .parent-flex;
+}
+
+.paragrah-wrapper {
+  border: 2px solid black;
+  margin: 15px 25px;
+  padding: 20px;
+  @extend .parent-flex;
+}
+
+// Mixin Örneği
+
+// Mixin ortak yapılar oluşturma ve responsive tasarım elde etme noktasında kullanabileceğimiz kullanışlı bir scss yapısıdır.Bir mixin tanımlarken @mixin yazılır sonrasında mixin'e bir isim verilir,verilen isimden sonra {} içerisinde gerekli kodlama yapılır.
+
+// ! Mixin oluştururken eğer responsive tasarım için bu yapıyı kullanmak istiyorsak bunu mixin içerisinde media etiketi kullanarak yaparız.Ekstra olarak media etiketi içerisine @content yazarız.Bu sayede mixin yapısı çağırıldığı noktada belirlenen ekran boyutuna göre responsive tasarım yapılabilir.
+
+@mixin button {
+  padding: 10px 25px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  &:hover {
+    scale: 0.7;
+  }
+}
+
+.btn-1 {
+  @include button;
+  background-color: orange;
+}
+
+.btn-2 {
+  @include button;
+  background-color: tomato;
+}
+
+// Moduler Dosya Yönetimi Örneği
+
+// Bir projede tüm stillendirmeyi tek scss dosyasında yapmak bizim için kod yönetimini zorlaştırır.Bu durumu daha kolay yönetebilmek için scss moduler dosya yönetimi kullanılır.Bir tane ana scss dosyası belirlenir.Bunun haricinde ise birkaç yardımcı scss dosyası oluşturulur.Ana scss dosyası live sass complier eklentisi ile css dosyasına çevirilir,elde edilen css dosyası html bağlanır.
+
+// !Yardımcı scss dosyaları oluşturulurken dosya adının başına '_' konulmalıdır.Bu sayede live sass complier eklentisi ana scss dosyası ve yardımcı scss dosyalarını ayırt eder.Tüm stillerin ana scss dosyasında toplanabilmesi içinse yardımcı scss dosyaları ana scss dosyasında import edilir.İmport işlemi "@import 'dosyanın adı'" şeklinde yapılır.
+
+.page-example {
+  border: 3px solid gray;
+  margin: 10px;
+  height: 100vh;
+
+  main {
+    display: flex;
+    height: 90%;
+  }
+}
