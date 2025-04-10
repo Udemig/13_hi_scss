@@ -20,9 +20,15 @@
 @import "./educations";
 @import "./about-us";
 @import "./popular-courses";
+@import "./contact-us";
+@import "./footer";
 
 a {
   color: $text-color;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
