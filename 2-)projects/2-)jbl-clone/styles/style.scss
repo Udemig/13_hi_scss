@@ -6,6 +6,11 @@
 @import "./responsive";
 @import "./header";
 @import "./home";
+@import "./about";
+@import "./favorite";
+@import "./model";
+@import "./sponsor";
+@import "./footer";
 
 // Css Reset
 * {
@@ -16,6 +21,16 @@
   text-decoration: none;
   border: none;
   outline: none;
+}
+
+h1,
+h2 {
+  color: $white-color;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 30px;
 }
 
 body {
